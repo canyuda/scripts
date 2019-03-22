@@ -2,20 +2,20 @@
 rem create by canyuda(helloyuda95@gmail.com)
 rem hello bat
  
-echo é€‰æ‹©ä»“åº“è·¯å¾„1or2:(1.D:\repo   2.D:\localrepo)
+echo Ñ¡Ôñ²Ö¿âÂ·¾¶1or2:(1.D:\repo   2.D:\localrepo)
 set /p repo=>nul
-echo é€‰æ‹©äº† ï¼š %repo%
+echo Ñ¡ÔñÁË £º %repo%
 
 if %repo%==1 (set REPOSITORY_PATH=D:\repo) else (
 if %repo%==2 (set REPOSITORY_PATH=D:\localrepo) else (
-echo è¾“å…¥é”™è¯¯ï¼Œè¯·é€‰æ‹©1or2 ,ä½ çš„è¾“å…¥: %repo%
+echo ÊäÈë´íÎó£¬ÇëÑ¡Ôñ1or2 ,ÄãµÄÊäÈë: %repo%
 PAUSE
 GOTO :EOF
 ) )
 
-rem æ­£åœ¨æœç´¢...
+rem ÕıÔÚËÑË÷...
 for /f "delims=" %%i in ('dir /b /s "%REPOSITORY_PATH%\*lastUpdated*"') do (
     del /s /q %%i
 )
-rem æœç´¢å®Œæ¯•
+rem ËÑË÷Íê±Ï
 pause
