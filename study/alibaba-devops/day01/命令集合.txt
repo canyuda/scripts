@@ -1,0 +1,27 @@
+cd /e/study/alibaba/alpd-bot-ssh
+cd /e/study/alibaba/alpd-bot-auth
+cd /e/study/alibaba/alpd-bot-query
+
+
+
+minikube start --cpus=4 --memory=1900mb
+
+minikube kubectl apply -f deployment-local.yml
+
+minikube start
+minikube dashboard
+minikube delete && rm -r ~/.minikube
+
+
+
+docker run -d -p 2222:2222 -p 9001:9001 -p 9099:9099 --name auth alpd-bot-auth
+docker run -d --network=container:auth alpd-bot-query
+docker run -d --name ssh --network=container:auth alpd-bot-ssh -cfg conf/local.json
+
+
+docker build -t alpd-bot-auth:latest .
+docker build -t alpd-bot-query:latest .
+docker build -t alpd-bot-ssh:latest .
+
+
+minikube kubectl -- get pods -A
