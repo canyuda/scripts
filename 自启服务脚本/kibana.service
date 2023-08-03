@@ -1,0 +1,11 @@
+[Unit]
+Description=kibana
+After=network.target esnode1.service esnode2.service esnode3.service
+Wants=esnode1.service esnode2.service esnode3.service
+
+[Service]
+Type=simple
+ExecStart=/opt/soft/kibana/kibana-7.13.0/bin/kibana --allow-root
+
+[Install]
+WantedBy=multi-user.target

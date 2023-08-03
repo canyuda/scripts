@@ -1,0 +1,15 @@
+[Unit]
+Description=ifile
+Documentation=https://ifile.space/docs
+After=network.target
+Wants=network.target
+
+[Service]
+WorkingDirectory=/opt/soft/ifile
+ExecStart=/opt/soft/ifile/ifile
+Restart=on-failure
+RestartSec=10s
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target

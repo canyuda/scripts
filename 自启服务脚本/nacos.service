@@ -1,0 +1,14 @@
+[Unit]
+Description=nacos
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/home/yuda/nacos/bin/startup.sh -m standalone
+ExecReload=/home/yuda/nacos/bin/shutdown.sh
+ExecStop=/home/yuda/nacos/bin/shutdown.sh
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+

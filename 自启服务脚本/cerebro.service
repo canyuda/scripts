@@ -1,0 +1,10 @@
+[Unit]
+Description=cerebro
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/soft/cerebro/cerebro/bin/cerebro
+
+[Install]
+WantedBy=multi-user.target

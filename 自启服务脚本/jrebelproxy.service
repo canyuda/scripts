@@ -1,0 +1,11 @@
+[Unit]
+Description=jrebelproxy
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/soft/jrebel
+ExecStart=/opt/soft/jrebel/JrebelReverseProxy
+
+[Install]
+WantedBy=multi-user.target
